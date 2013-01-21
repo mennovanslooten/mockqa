@@ -8,11 +8,9 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -opera-box-sizing: border-box;
-    /*background: #123;*/
-    /*background: -webkit-radial-gradient(0 0, circle farthest-side, #123, #000 80%);*/
-    /*background: -moz-radial-gradient(0 0, circle farthest-side, #123, #000 80%);*/
-    /*background: radial-gradient(0 0, circle farthest-side, #123, #000 80%);*/
     background-image: -moz-linear-gradient(left, transparent, rgba(0,0,0,0.5)), -moz-linear-gradient(top, #123, #000);
+    background-image: -webkit-linear-gradient(left, transparent, rgba(0,0,0,0.5)), -webkit-linear-gradient(top, #123, #000);
+    background-image: linear-gradient(left, transparent, rgba(0,0,0,0.5)), linear-gradient(top, #123, #000);
     text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
     color: #ABC;
     /*border: 1px solid #666;*/
@@ -30,10 +28,14 @@
 
     width: 300px;
     bottom: 10px;
-    right: -270px;
     opacity: 0.9;
     -moz-transition: right 0.3s ease-in-out;
     -webkit-transition: right 0.3s ease-in-out;
+    right: 0;
+}
+
+.mockqa-active #mockqa-testlist {
+    right: -270px;
 }
 
 #mockqa-testlist:hover {
@@ -131,7 +133,7 @@
 }
 
 #mockqa-testlist .mockqa-test-group {
-    padding: 10px 0;
+    padding: 4px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(0, 0, 0, 0.9);
     /*background-position: 0 0;*/
@@ -176,7 +178,7 @@
 
 #mockqa-testlist .mockqa-test-group li {
     /*background: rgba(0,0,0,0.2);*/
-    padding: 0 50px 0 30px;
+    padding: 0 70px 0 30px;
     text-align: left;
     position: relative;
     -moz-transition: left 0.3s ease-in-out;
@@ -222,8 +224,34 @@
 #mockqa-testlist .mockqa-test-group li .mockqa-test-progress {
     position: absolute;
     width: 40px;
-    right: 10px;
+    right: 40px;
     top: 0;
     text-align: right;
 }
 
+#mockqa-testlist .mockqa-test-group li .mockqa-test-info {
+    position: absolute;
+    width: 40px;
+    right: 10px;
+    top: 7px;
+    text-align: center;
+    line-height: 16px;
+    width: 16px;
+    border-radius: 8px;
+    background: #039;
+    color: #FFF;
+    font-size: 10px;
+    font-style: italic;
+    text-indent: -2px;
+    text-decoration: none;
+    display: none;
+}
+
+#mockqa-testlist .mockqa-test-group li:hover .mockqa-test-info {
+    display: block;
+}
+
+#mockqa-testlist .mockqa-test-group li .mockqa-test-info:hover {
+    background: #09C;
+    
+}

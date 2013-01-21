@@ -78,12 +78,20 @@
 
     function loadInclude(test, include_index) {
         var include_action = test.actions[include_index];
+        /*
         var matches = include_action.match(/'(.+)'/);
 
         if (!matches || matches.length !== 2) {
             return;
         }
         var include_file = matches[1];
+        */
+        var parts = include_action.split(/\s{2,}/);
+        if (parts.length !== 2) {
+            return;
+        }
+
+        var include_file = parts[1];
 
         $.ajax({
             url: M.base_url + 'tests/' + include_file,

@@ -31,6 +31,10 @@
             delete test.actions;
         });
 
+        _ui.on('click', 'a', function(e) {
+            e.stopPropagation();
+        });
+
         _ui.on('click', 'h2', function() {
             $(this).next('ul').find('[data-index]').trigger('click');
         });
@@ -74,9 +78,11 @@
             html += '<div class="mockqa-test-group"><h2>' + page + '</h2>';
             html += '<ul>';
             $.each(items, function(index, item) {
+                var test_url = M.base_url + 'tests/' + item.test.test;
                 html += '<li data-index="' + item.index + '">';
                 html += '<div class="mockqa-test-name">' + item.test.test + '</div>';
-                html += '<div class="mockqa-test-progress"/></li>';
+                html += '<div class="mockqa-test-progress"/>';
+                html += '<a class="mockqa-test-info" href="' + test_url + '">i</a></li>';
             });
             html += '</ul></div>';
         });
@@ -97,8 +103,11 @@
 
 
     function showUI(tests, active) {
-        var is_running = !!active && active.status === 'running';
-        $('html').toggleClass('mockqa-active', is_running);
+        //var is_running = !!active && active.status === 'running';
+        //$('html').toggleClass('mockqa-active', is_running);
+        setTimeout(function() {
+            $('html').toggleClass('mockqa-active', tests.length > 0);
+        }, 500);
     }
 
 

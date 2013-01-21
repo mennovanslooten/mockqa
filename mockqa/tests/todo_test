@@ -1,60 +1,60 @@
-## let's start with an easy one: the header should say 'todos'
-assertText       'h1'                               'todos'
+## lets start with an easy one: the header should say todos
+assertText       h1                               todos
 
 ## make sure we start with an empty list
-assertEmpty      '#todo-list'
+assertEmpty      #todo-list
 
 
 ## enter three items. \r simulates enter key
-type             '#new-todo'                        'My first item\rMy second item\rMy third item\r'
-assertLength     '#todo-list > li'                  '3'
-assertText       '#todo-count'                      '3 items left'
-assertHidden     '#clear-completed'
+type             #new-todo                        My first item\rMy second item\rMy third item\r
+assertLength     #todo-list > li                  3
+assertText       #todo-count                      3 items left
+assertHidden     #clear-completed
 
 
 ## toggle the first
-click            '#todo-list > li:first .toggle'
-assertHasClass   '#todo-list > li:first'            '.completed'
-assertText       '#todo-count'                      '2 items left'
-assertText       '#clear-completed'                 'Clear completed (1)'
+click            #todo-list > li:first .toggle
+assertHasClass   #todo-list > li:first            .completed
+assertText       #todo-count                      2 items left
+assertText       #clear-completed                 Clear completed (1)
 
 
 ## check the contents of the "active" tab
-click            'a[href="#/active"]'
-assertLength     '#todo-list > li'                  '2'
+click            a[href="#/active"]
+assertLength     #todo-list > li                  2
 
 
 ## check the contents of the "completed" tab
-click            'a[href="#/completed"]'
-assertLength     '#todo-list > li'                  '1'
+click            a[href="#/completed"]
+assertLength     #todo-list > li                  1
 
 
 ## completed list should be empty after clicking "clear completed"
-click            '#clear-completed'
-assertLength     '#todo-list > li'                  '0'
+click            #clear-completed
+assertLength     #todo-list > li                  0
 
 
 ## the "all" list should still have 2 items left
-click            'a[href="#/"]'
-assertLength     '#todo-list > li'                  '2'
+click            a[href="#/"]
+assertLength     #todo-list > li                  2
 
 
 ## there are 2 items left, "toggle all" should complete them both
-click            '#toggle-all'
-assertLength     '#todo-list > li.completed'        '2'
-assertText       '#clear-completed'                 'Clear completed (2)'
+click            #toggle-all
+assertLength     #todo-list > li.completed        2
+assertText       #clear-completed                 Clear completed (2)
 
 
 ## ...click "toggle all" again to put them back in progress
-click            '#toggle-all'
-assertLength     '#todo-list > li.completed'        '0'
+click            #toggle-all
+assertLength     #todo-list > li.completed        0
 
 
 ## check double click to edit function
-dblclick         '#todo-list > li:eq(1) label'
-assertVisible    '#todo-list > li:eq(1) .edit'
+dblclick         #todo-list > li:eq(1) label
+assertVisible    #todo-list > li:eq(1) .edit
 
 
-## type a new value into the item's input
-type             '#todo-list > li:eq(1) .edit'      '[left][right]\bThis is m\r'
-assertText       '#todo-list > li:eq(1)'            'This is my third item'
+## type a new value into the items input
+type             #todo-list > li:eq(1) .edit      [left][right]\bThis is m\r
+assertText       #todo-list > li:eq(1)            This is my third item

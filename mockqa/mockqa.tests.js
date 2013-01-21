@@ -49,19 +49,29 @@
         var result = null;
 
         if (command && command.length === 3) {
+            /*
             var rx = /(["'])((?:\\?.)*?)\1/g;
             var args = [];
             var match;
             while ((match = rx.exec(command[2])) !== null) {
                 args.push(match[2]);
             }
-
             var action = command[1];
 
             result = {
                 type: action,
                 args: args
             };
+            */
+
+            var args = line.split(/\s{2,}/);
+            if (args.length > 1) {
+                console.log(args);
+                result = {
+                    type: args.shift(),
+                    args: args
+                };
+            }
         } else if (log && log.length === 2) {
             result = {
                 type: 'log',
@@ -147,7 +157,7 @@
 
             setTimeout(function() {
                 localStorage.clear();
-                location.href = active.page;
+                location.href = M.base_url + '../' + active.page;
             }, 500);
         }
     }
