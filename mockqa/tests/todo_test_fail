@@ -1,0 +1,9 @@
+## let's start with an easy one: the header should say 'todos'
+assertText       'h1'                               'todos'
+
+## enter an item
+type             '#new-todo'                        'This is my new item\r'
+
+## this should fail: #todo-count actually has '1 item left'
+assertText       '#todo-count'                      '3 items left'
+

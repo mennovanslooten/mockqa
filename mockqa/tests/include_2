@@ -1,0 +1,15 @@
+## Fill in the form data
+type          ':text'                 'Hello, world.'
+
+type          ':password'             'hunter2'
+
+choose        'select'                'option two'
+
+choose        'select[multiple]'      'option two'    'option four'
+
+type          'textarea'              'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+
+click         ':checkbox:eq(1)'
+click         ':checkbox:eq(3)'
+click         ':radio:eq(2)'
+
