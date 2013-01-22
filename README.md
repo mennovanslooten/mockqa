@@ -12,7 +12,7 @@ Open the MockQA menu on the right by hovering your mouse over it, then click a t
 
 MockQA has the following design goals:
 
-1. Zero install and only minimal configure. No browser plugins necessary.
+1. Zero install and minimal configuration. No browser plugins necessary.
 2. Easy to write tests.
 3. Automatically continues test after page loads and form submits.
 4. Automatically waits for asynchronous activities like Ajax calls and animations to complete.
