@@ -93,6 +93,7 @@
         //setInterval(checkForUpdates, _check_delay);
         setTimeout(checkForUpdates, _check_delay);
         //M.log('ready...');
+        window.scrollTo(0, 0);
     });
 
     $(window).on('beforeunload', function() {

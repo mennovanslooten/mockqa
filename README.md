@@ -18,7 +18,7 @@ MockQA has the following design goals:
 4. Automatically waits for asynchronous activities like Ajax calls and animations to complete.
 5. You can see and debug tests running in a browser.
 
-## Installation
+## Setup
 
 1. Download and extract the [ZIP](https://github.com/mennovanslooten/mockqa/archive/master.zip), or clone from [GitHub](https://github.com/mennovanslooten/mockqa).
 2. Copy the `mockqa` subdirectory into your project. 

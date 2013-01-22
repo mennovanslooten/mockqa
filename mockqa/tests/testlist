@@ -4,3 +4,4 @@ todo_test_fail   demo-backbone/index.html
 form_test        demo-form/index.html
 include_test     demo-form/index.html
 ajax_test        demo-ajax/index.html
+jqueryui_test    demo-jqueryui/index.html

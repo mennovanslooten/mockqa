@@ -66,7 +66,7 @@
 
             var args = line.split(/\s{2,}/);
             if (args.length > 1) {
-                console.log(args);
+                //console.log(args);
                 result = {
                     type: args.shift(),
                     args: args
