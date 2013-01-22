@@ -1,12 +1,22 @@
 # MockQA
 
-MockQA is a tool that you can use to easily write and run functional tests for web projects that use jQuery.
+**MockQA is a tool that you can use to easily write and run functional tests for web projects that use jQuery.**
 
 ## Demo
 
 http://mennovanslooten.github.com/mockqa/demo/demo-backbone/index.html
 
 Open the MockQA menu on the right by hovering your mouse over it, then click a test to run it.
+
+## Why MockQA?
+
+MockQA has the following design goals:
+
+1. Zero install and only minimal configure. No browser plugins necessary.
+2. Easy to write tests.
+3. Automatically continues test after page loads and form submits.
+4. Automatically waits for asynchronous activities like Ajax calls and animations to complete.
+5. You can see and debug tests running in a browser.
 
 ## Installation
 
@@ -22,19 +32,19 @@ Example:
 
 ## Writing tests
 
-Tests are written in a special MockQA format, designed for simplicity and readability. This is best illustrated with an example:
+Tests are written in a special format designed for simplicity and readability. This is best illustrated with an example:
 
     # This is a commment. Comments and empty lines are ignored
     
     # Every line is a command. Commands have an action and a target.
     # [action]        [target]
     
-    click             #some-id
+    click             #my-button
     
     # Some actions require an extra argument
     # [action]        [target]         [argument]
     
-    type              #some-input      Hello, world.
+    type              #my-input        Hello, world.
     
     # Actions, targets and arguments are separated by 2 or more spaces. 
     # I recommend at least 4 for optimal readability.
@@ -68,7 +78,8 @@ To include a test:
 
 Let's say you added two test files called `test_1` and `test_2` and you want to run these on the pages `index.html` and `foo.html`. The file `testlist` should look something like this.
 
-    # test filename        test start page
+    # test filename       test start page
+    
     test_1                index.html
     test_2                index.html
     test_1                foo.html
