@@ -10,9 +10,12 @@
         tests: [],
 
         log: function() {
-            var args = [].slice.call(arguments, 0);
-            args.unshift('[MOCKQA]');
-            console.info.apply(console, args);
+            try {
+                var args = [].slice.call(arguments, 0);
+                args.unshift('[MOCKQA]');
+                console.log.apply(console, args);
+            } catch (ex) {
+            }
         },
 
         base_url: _base_url,

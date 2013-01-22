@@ -156,7 +156,9 @@
             M.unsubscribe(runTest);
 
             setTimeout(function() {
-                localStorage.clear();
+                if (localStorage) {
+                    localStorage.clear();
+                }
                 location.href = M.base_url + '../' + active.page;
             }, 500);
         }

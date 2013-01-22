@@ -8,6 +8,7 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -opera-box-sizing: border-box;
+    background: #123;
     background-image: -moz-linear-gradient(left, transparent, rgba(0,0,0,0.5)), -moz-linear-gradient(top, #123, #000);
     background-image: -webkit-linear-gradient(left, transparent, rgba(0,0,0,0.5)), -webkit-linear-gradient(top, #123, #000);
     background-image: linear-gradient(left, transparent, rgba(0,0,0,0.5)), linear-gradient(top, #123, #000);
@@ -113,8 +114,10 @@
 #mockqa-testlist button {
     border: none;
     padding: 5px 20px;
+    background: #09C;
     background: -moz-radial-gradient(50% 0, ellipse, #09C, #036);
     background: -webkit-radial-gradient(50% 0, ellipse , #09C, #036);
+    line-height: 10px;
     opacity: 0.8;
     text-align: center;
     border-radius: 5px;
