@@ -1,4 +1,75 @@
-mockqa
-======
+# MockQA
 
-The MockQA Functional Testing tool
+MockQA is a tool that you can use to easily write and run functional tests for web projects that use jQuery.
+
+## Demo
+
+http://mennovanslooten.github.com/mockqa/demo/demo-backbone/index.html
+
+Open the MockQA menu on the right by hovering your mouse over it, then click a test to run it.
+
+## Installation
+
+1. Download and extract the [ZIP](https://github.com/mennovanslooten/mockqa/archive/master.zip), or clone from [GitHub](https://github.com/mennovanslooten/mockqa).
+2. Copy the `mockqa` subdirectory into your project. 
+3. Include `mockqa.js` after jQuery in your HTML.
+
+Example:
+
+    <script src="js/jquery.min.js"></script>
+    <script src="mockqa/mockqa.js"></script>
+
+
+## Writing tests
+
+Tests are written in a special MockQA format, designed for simplicity and readability. This is best illustrated with an example:
+
+    # This is a commment. Comments and empty lines are ignored
+    
+    # Every line is a command. Commands have an action and a target.
+    # [action]        [target]
+    
+    click             #some-id
+    
+    # Some actions require an extra argument
+    # [action]    [target]         [argument]
+    
+    type              #some-input      Hello, world.
+    
+    # Actions, targets and arguments are separated by 2 or more spaces. 
+    # I recommend at least 4 for optimal readability.
+    
+	# Targets are CSS selectors like #some-id, .some-class or a[href]. 
+	# jQuery extensions like :text and :password are also allowed.
+	
+	# Asserts are special kinds of commands that test the page for a certain condition.
+	# If an assert fails, the test is cancelled.
+	
+	# Test if at least one element with class="foobar" is visible:
+	assertVisible    .foobar
+	
+	# Test if the submit button has the text "GO!":
+	assertText       :submit            GO!
+ 
+
+## Including tests
+
+To include a test:
+
+1. Save it in the directory `mockqa/tests`. 
+2. Add a reference to it in the file `mockqa/tests/testlist`. 
+
+Let's say you added two test files called `test_1` and `test_2` and you want to run these on the pages `index.html` and `foo.html`. The file `testlist` should look something like this.
+
+    # test filename        test start page
+    test_1                index.html
+    test_2                index.html
+    test_1                foo.html
+    test_2                foo.html
+    
+Tests will automatically be grouped by start page in the MockQA menu.
+
+## Running tests
+
+To run this test, simply open `index.html` in a browser and hover over the MockQA menu on the right. Click a test name to start that test.
+
