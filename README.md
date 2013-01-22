@@ -32,7 +32,7 @@ Tests are written in a special MockQA format, designed for simplicity and readab
     click             #some-id
     
     # Some actions require an extra argument
-    # [action]    [target]         [argument]
+    # [action]        [target]         [argument]
     
     type              #some-input      Hello, world.
     
@@ -41,6 +41,7 @@ Tests are written in a special MockQA format, designed for simplicity and readab
     
 	# Targets are CSS selectors like #some-id, .some-class or a[href]. 
 	# jQuery extensions like :text and :password are also allowed.
+	# In fact, everything that jQuery allows is allowed
 	
 	# Asserts are special kinds of commands that test the page for a certain condition.
 	# If an assert fails, the test is cancelled.
@@ -73,3 +74,4 @@ Tests will automatically be grouped by start page in the MockQA menu.
 
 To run this test, simply open `index.html` in a browser and hover over the MockQA menu on the right. Click a test name to start that test.
 
+## MORE TO COME
