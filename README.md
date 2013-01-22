@@ -41,16 +41,22 @@ Tests are written in a special MockQA format, designed for simplicity and readab
     
 	# Targets are CSS selectors like #some-id, .some-class or a[href]. 
 	# jQuery extensions like :text and :password are also allowed.
-	# In fact, everything that jQuery allows is allowed
+	# In fact, everything that jQuery allows is allowed. 
+	# See: http://api.jquery.com/category/selectors/
+
+    click             a.tab:not(.active):contains("Click me")
 	
 	# Asserts are special kinds of commands that test the page for a certain condition.
-	# If an assert fails, the test is cancelled.
+	# If an assert fails, the test is cancelled. 
 	
 	# Test if at least one element with class="foobar" is visible:
 	assertVisible    .foobar
 	
 	# Test if the submit button has the text "GO!":
 	assertText       :submit            GO!
+    
+    # Some asserts don't require a target
+    assertTitle       MockQA Homepage Title
  
 
 ## Including tests
@@ -67,11 +73,9 @@ Let's say you added two test files called `test_1` and `test_2` and you want to 
     test_2                index.html
     test_1                foo.html
     test_2                foo.html
-    
-Tests will automatically be grouped by start page in the MockQA menu.
 
 ## Running tests
 
-To run this test, simply open `index.html` in a browser and hover over the MockQA menu on the right. Click a test name to start that test.
+To run this test, simply open `index.html` or `foo.html` in a browser and hover over the MockQA menu on the right. Click a test name to start that test.
 
 ## MORE TO COME
