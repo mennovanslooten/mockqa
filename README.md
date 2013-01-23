@@ -1,6 +1,14 @@
 # MockQA
 
-**MockQA is a tool that you can use to easily write and run functional tests for web projects that use jQuery.**
+**MockQA is a Functional Testing tool for jQuery projects that has one design goal:**
+
+> Enable front-end developers of all levels to write and run functional tests within minutes from their first encounter. Developers should spend time debugging software, not tests.
+
+To achieve this, I focused on the following features:
+
+1. Zero install and minimal configuration. No browser plugins, no command line.
+2. An intuitive format that makes it easy to write tests.
+3. You can see and debug tests running in a browser.
 
 ## Demo
 
@@ -8,17 +16,9 @@ http://mennovanslooten.github.com/mockqa/demo/demo-backbone/index.html
 
 Open the MockQA menu on the right by hovering your mouse over it, then click a test to run it.
 
-## Why MockQA?
+## Getting started
 
-MockQA has the following design goals:
-
-1. Zero install and minimal configuration. No browser plugins necessary.
-2. Easy to write tests.
-3. Automatically continues test after page loads and form submits.
-4. Automatically waits for asynchronous activities like Ajax calls and animations to complete.
-5. You can see and debug tests running in a browser.
-
-## Setup
+### Setup
 
 1. Download and extract the [ZIP](https://github.com/mennovanslooten/mockqa/archive/master.zip), or clone from [GitHub](https://github.com/mennovanslooten/mockqa).
 2. Copy the `mockqa` subdirectory into your project. 
@@ -29,19 +29,18 @@ Example:
     <script src="js/jquery.min.js"></script>
     <script src="mockqa/mockqa.js"></script>
 
+### Writing tests
 
-## Writing tests
+Tests are written in a special format designed for simplicity and readability:
 
-Tests are written in a special format designed for simplicity and readability. This is best illustrated with an example:
-
-    # This is a commment. Comments and empty lines are ignored
+    # This is a comment. Comments and empty lines are ignored
     
-    # Every line is a command. Commands have an action and a target.
+    # Other lines are commands. Most commands have an action and a target.
     # [action]        [target]
     
     click             #my-button
     
-    # Some actions require an extra argument
+    # Some actions require an argument
     # [action]        [target]         [argument]
     
     type              #my-input        Hello, world.
@@ -69,7 +68,7 @@ Tests are written in a special format designed for simplicity and readability. T
     assertTitle       MockQA Homepage Title
  
 
-## Including tests
+### Including tests
 
 To include a test:
 
@@ -85,8 +84,62 @@ Let's say you added two test files called `test_1` and `test_2` and you want to 
     test_1                foo.html
     test_2                foo.html
 
-## Running tests
+### Running tests
 
-To run this test, simply open `index.html` or `foo.html` in a browser and hover over the MockQA menu on the right. Click a test name to start that test.
+1. Open `index.html` or `foo.html` in a browser.
+2. Hover over the MockQA menu on the right to open it.
+3. Click a test name to start that test.
 
-## MORE TO COME
+## Digging deeper
+
+### Multi-page test
+
+If you have a test that spans multiple HTML pages, for example because you click a link or submit a form in the middle, MockQA takes care of that automatically. As long as `mockqa.js` is included in all pages it will pick up the test where it left off:
+
+    # fill in the login form
+    type          input[name="user"]        menno
+    type          input[name="password"]    test123
+    
+    # submit the form
+    click         input[type="submit"]
+    
+    # we should now be on a new page
+    assertText    h1                        Welcome, Menno!
+
+### Dealing with asynchronous behavior
+
+MockQA automatically waits for asynchronous activities like Ajax calls and animations to complete. There's no need to expicitly tell MockQA to wait.
+
+    # This button triggers an ajax request:
+    click         button
+    assertText    #target                   Ajax response text
+
+## API
+
+### Actions
+
+Action | Target    | Argument  | Explanation
+-------|-----------|-----------|------------
+`click`| required  | no        | Clicks the target
+`type` | required  | yes       | Types [argument] into the target
+`dblclick` | required | no     | Double-clicks the target
+
+All actions require `assertVisible` to pass for the target.
+
+### Asserts
+
+Assert          | Target    | Argument | Explanation
+----------------|-----------|----------|------------
+`assertPage`    | no        | yes      | Asserts [argument] is in the current URL
+`assertTitle`   | no        | yes      | Asserts [argument] is in the current window title
+`assertVisible` | yes       | no       | Asserts target is visible
+`assertHidden`  | yes       | no       | Asserts target is invisible or doesn't exist
+`assertDisabled`| yes       | no       | Asserts target is disabled
+`assertEnabled` | yes       | no       | Asserts target is enabled
+`assertText`    | yes       | yes      | Asserts target's text contains [argument]
+`assertNotClass`| yes       | yes      | Asserts target's CSS class does not contain [argument]
+`assertHasClass`| yes       | yes      | Asserts target's CSS class contains [argument]
+`assertValue`   | yes       | yes      | Asserts target's value is [argument]
+`assertLength`  | yes       | yes      | Asserts [argument] number of visible elements match [target]
+`assertEmpty`   | yes       | yes      | Asserts target has no children
+
