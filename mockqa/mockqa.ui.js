@@ -94,10 +94,15 @@
 
 
     function updateMenu(tests, active) {
+        if (!_ui) {
+            return;
+        }
         $.each(tests, function(index, test) {
             var item = _ui.find('[data-index="' + index + '"]');
             item.attr('class', 'mockqa-test-status-' + test.status);
             item.find('.mockqa-test-progress').text(getProgress(test));
+            //var is_current_page = location.href.indexOf(active.page) > -1;
+            //item.closest('mockqa-test-group').toggleClass('mockqa-current-page', is_current_page);
         });
     }
 
@@ -107,7 +112,7 @@
         //$('html').toggleClass('mockqa-active', is_running);
         setTimeout(function() {
             $('html').toggleClass('mockqa-active', tests.length > 0);
-        }, 500);
+        }, 1500);
     }
 
 

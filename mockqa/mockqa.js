@@ -39,8 +39,8 @@
         $.each(M.tests, function(index, test) {
             switch (test.status) {
                 case '':
-                    case 'passed':
-                    case 'failed':
+                case 'passed':
+                case 'failed':
                     break;
 
                 default: 
@@ -66,6 +66,9 @@
                     try {
                         handler(M.tests, active);
                     } catch (ex) {
+                        console.log('Exception calling subscriber:', ex);
+                        //active.status = 'failed';
+                        //return false;
                     }
                 }
             });
@@ -126,6 +129,9 @@
 
     // mockqa.assert.js holds all the UI assert methods
     addScript('mockqa.assert');
+
+    // mockqa.extensions.js can hold custom extension actions
+    addScript('mockqa.extensions');
 
     // mockqa.data.js loads the test list, either from disk or from window.name
     addScript('mockqa.data');

@@ -1,7 +1,5 @@
-## Click the button that triggers the Ajax call
+## Trigger the Ajax call and check if response has been loaded
 click         #go
-
-## Check if the correct data has been loaded
 assertText    #target                 Actual ajax response
 
 ## Setup mockjax to intercept request
@@ -9,18 +7,20 @@ assertText    #target                 Actual ajax response
 # with the file "mockqa/tests/mockjax/mocked-response.html"
 mockjax       ajax-response.html      mocked-response.html
 
-## Click the button that triggers the Ajax call
+## Trigger the Ajax call and check if response has been mocked
 click         #go
-
-## Check if the mocked data has been loaded
 assertText    #target                 Mocked ajax response
 
 ## Redefine mockjax setup
 mockjax       ajax-response.html      mocked-response.2.html
 
-## Click the button that triggers the Ajax call
+## Trigger the Ajax call and check if response has been mocked differently
 click         #go
-
-## Check if the new mocked data has been loaded
 assertText    #target                 Other mocked ajax response
- 
+
+## Clear mockjax setup
+mockjax       ajax-response.html
+
+## Trigger the Ajax call and check that response has not been mocked
+click         #go
+assertText    #target                 Actual ajax response

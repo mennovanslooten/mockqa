@@ -49,24 +49,8 @@
         var result = null;
 
         if (command && command.length === 3) {
-            /*
-            var rx = /(["'])((?:\\?.)*?)\1/g;
-            var args = [];
-            var match;
-            while ((match = rx.exec(command[2])) !== null) {
-                args.push(match[2]);
-            }
-            var action = command[1];
-
-            result = {
-                type: action,
-                args: args
-            };
-            */
-
             var args = line.split(/\s{2,}/);
             if (args.length > 1) {
-                //console.log(args);
                 result = {
                     type: args.shift(),
                     args: args
@@ -85,16 +69,28 @@
 
 
     var _prev_target = $();
+    var _prev_selector = '';
     function executeAction(test, action) {
         var type = action.type;
         var selector = action.args[0];
         var argument = action.args[1];
         var target;
 
+        // Allow &-substitution with previous selector
+        if (selector && selector.indexOf('&') === -1) {
+            _prev_selector = selector;
+        } else if (selector) {
+            selector = selector.replace('&', _prev_selector);
+        }
+
+        var args = action.args.slice(1);
+        args.unshift(selector);
+
         // First, try to find the action's target
-        if (type in M.assert) {
-            //target = M.assert[type](selector, argument);
-            target = M.assert[type].apply(M.assert, action.args);
+        if (type in M.extensions) {
+            target = M.extensions[type].apply(M.extensions, args);
+        } else if (type in M.assert) {
+            target = M.assert[type].apply(M.assert, args);
         } else if (type in Syn) {
             target = M.assert.assertVisible(selector).first();
         } else if (type === 'log') {

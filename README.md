@@ -122,6 +122,16 @@ Logging is such a common activity, MockQA has a special syntax for it:
 
     ## This comment will be logged (note the double #)
 
+### Mocking Ajax requests
+
+In some situations it's nice to be able to mock Ajax requests to the server. Jonathan Sharp of [appendTo](http://www.appendto.com) wrote a brilliant jQuery plugin that will do just about anything. MockQA has a special action to set up the most common case: intercept requests to one file and respond with the contents of another.
+
+    # This setup will mock requests to "ajax-response.html"
+    # with the file "mockqa/tests/mockjax/mocked-response.html"
+    mockjax       ajax-response.html      mocked-response.html
+
+[Read more about mockjax](http://enterprisejquery.com/2010/07/mock-your-ajax-requests-with-mockjax-for-rapid-development/)
+
 
 ## API
 
@@ -133,7 +143,7 @@ Action     | Target   | Argument  | Explanation
 `type`     | required | yes       | Types [argument] into the target
 `dblclick` | required | no        | Double-clicks the target
 
-All actions require `assertVisible` to pass for the target. Actions are simulated by the excellent [syn](https://github.com/bitovi/syn) library by [bitovi](http://www.bitovi.com/). More actions like ``focus``, ``mouseover``, ``mouseout`` should be added soon.
+All actions require `assertVisible` to pass for the target. Some actions are simulated by the excellent [syn](https://github.com/bitovi/syn) library by [bitovi](http://www.bitovi.com/). More actions like ``focus``, ``mouseover``, ``mouseout`` should be added soon.
 
 ### Asserts
 
@@ -151,3 +161,11 @@ Assert          | Target    | Argument | Explanation
 `assertValue`   | yes       | yes      | Asserts target's value is [argument]
 `assertLength`  | yes       | yes      | Asserts [argument] number of visible elements match [target]
 `assertEmpty`   | yes       | yes      | Asserts target has no children
+
+### Helpers
+
+Helpers are neither actions nor asserts: they help setup the behavior of the test environment. Helpers don't have a target on the page but can have multiple arguments.
+
+Action     | Arguments  | Explanation
+-----------|------------|------------------------
+`mockjax`  | 2          | Intercepts Ajax requests to [argument1] with contents of [argument2]
