@@ -1,10 +1,8 @@
 (function($) {
 
     function decode(s) {
-        return decodeURIComponent(s.replace(/\+/g, ' '));
+        return s ? decodeURIComponent(s.replace(/\+/g, ' ')) : '';
     }
-
-
 
     var query = location.search.substr(1);
     var parsed = {};
@@ -21,7 +19,6 @@
             parsed[name].push(value);
         }
     });
-    //console.dir(parsed);
 
     var results = $('#results');
     $.each(parsed, function(name, values) {
