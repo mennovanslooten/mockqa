@@ -108,11 +108,20 @@ If you have a test that spans multiple HTML pages, for example because you click
 
 ### Dealing with asynchronous behavior
 
-MockQA automatically waits for asynchronous activities like Ajax calls and animations to complete. There's no need to expicitly tell MockQA to wait.
+MockQA automatically waits for asynchronous activities like Ajax calls and animations to complete. 
 
     # This button triggers an ajax request:
     click         button
+    
+    # MockQA will automatically wait here
     assertText    #target                   Ajax response text
+
+### Logging to the console
+
+Logging is such a common activity, MockQA has a special syntax for it:
+
+    ## This comment will be logged (note the double #)
+
 
 ## API
 
@@ -124,7 +133,7 @@ Action | Target    | Argument  | Explanation
 `type` | required  | yes       | Types [argument] into the target
 `dblclick` | required | no     | Double-clicks the target
 
-All actions require `assertVisible` to pass for the target.
+All actions require `assertVisible` to pass for the target. Actions are simulated by the excellent [syn](https://github.com/bitovi/syn) library by [bitovi](http://www.bitovi.com/). More actions like ``focus``, ``mouseover``, ``mouseout`` should be added soon.
 
 ### Asserts
 
@@ -142,4 +151,3 @@ Assert          | Target    | Argument | Explanation
 `assertValue`   | yes       | yes      | Asserts target's value is [argument]
 `assertLength`  | yes       | yes      | Asserts [argument] number of visible elements match [target]
 `assertEmpty`   | yes       | yes      | Asserts target has no children
-
