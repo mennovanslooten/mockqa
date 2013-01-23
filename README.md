@@ -37,8 +37,15 @@ Tests are written in a special format designed for simplicity and readability:
     
     # Other lines are commands. Most commands have an action and a target.
     # [action]        [target]
-    
+   
     click             #my-button
+    
+	# Targets are CSS selectors like #some-id, .some-class or a[href]. 
+	# jQuery extensions like :text and :password are also allowed.
+	# In fact, everything that jQuery allows is allowed. 
+	# See: http://api.jquery.com/category/selectors/
+
+    click             a.tab:not(.active):contains("Click me")
     
     # Some actions require an argument
     # [action]        [target]         [argument]
@@ -47,13 +54,6 @@ Tests are written in a special format designed for simplicity and readability:
     
     # Actions, targets and arguments are separated by 2 or more spaces. 
     # I recommend at least 4 for optimal readability.
-    
-	# Targets are CSS selectors like #some-id, .some-class or a[href]. 
-	# jQuery extensions like :text and :password are also allowed.
-	# In fact, everything that jQuery allows is allowed. 
-	# See: http://api.jquery.com/category/selectors/
-
-    click             a.tab:not(.active):contains("Click me")
 	
 	# Asserts are special kinds of commands that test the page for a certain condition.
 	# If an assert fails, the test is cancelled. 
