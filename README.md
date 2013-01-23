@@ -127,11 +127,11 @@ Logging is such a common activity, MockQA has a special syntax for it:
 
 ### Actions
 
-Action | Target    | Argument  | Explanation
--------|-----------|-----------|------------
-`click`| required  | no        | Clicks the target
-`type` | required  | yes       | Types [argument] into the target
-`dblclick` | required | no     | Double-clicks the target
+Action     | Target   | Argument  | Explanation
+-----------|----------|-----------|------------
+`click`    | required | no        | Clicks the target
+`type`     | required | yes       | Types [argument] into the target
+`dblclick` | required | no        | Double-clicks the target
 
 All actions require `assertVisible` to pass for the target. Actions are simulated by the excellent [syn](https://github.com/bitovi/syn) library by [bitovi](http://www.bitovi.com/). More actions like ``focus``, ``mouseover``, ``mouseout`` should be added soon.
 
