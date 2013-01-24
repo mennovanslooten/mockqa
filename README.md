@@ -2,7 +2,7 @@
 
 **MockQA is a Functional Testing tool for jQuery projects that has one design goal:**
 
-> Enable front-end developers of all levels to write and run functional tests within minutes from their first encounter. Developers should spend time debugging software, not tests.
+> MockQA should Enable front-end developers of all levels to write and run functional tests within minutes from their first encounter. Developers should spend time debugging software, not tests.
 
 To achieve this, I focused on the following features:
 
@@ -10,9 +10,7 @@ To achieve this, I focused on the following features:
 2. An intuitive format that makes it easy to write tests.
 3. You can see and debug tests running in a browser.
 
-## Demo
-
-http://mennovanslooten.github.com/mockqa/demo/demo-backbone/index.html
+## [Click here for a demo](http://mennovanslooten.github.com/mockqa/demo/demo-backbone/index.html)
 
 Open the MockQA menu on the right by hovering your mouse over it, then click a test to run it.
 
@@ -36,19 +34,17 @@ Tests are written in a special format designed for simplicity and readability:
     # This is a comment. Comments and empty lines are ignored
     
     # Other lines are commands. Most commands have an action and a target.
-    # [action]        [target]
    
     click             #my-button
-    
+
 	# Targets are CSS selectors like #some-id, .some-class or a[href]. 
 	# jQuery extensions like :text and :password are also allowed.
 	# In fact, everything that jQuery allows is allowed. 
 	# See: http://api.jquery.com/category/selectors/
 
-    click             a.tab:not(.active):contains("Click me")
+    click             #container > a.tab:not(.active)
     
     # Some actions require an argument
-    # [action]        [target]         [argument]
     
     type              #my-input        Hello, world.
     
@@ -56,7 +52,7 @@ Tests are written in a special format designed for simplicity and readability:
     # I recommend at least 4 for optimal readability.
 	
 	# Asserts are special kinds of commands that test the page for a certain condition.
-	# If an assert fails, the test is cancelled. 
+	# If an assert fails, the test fails. 
 	
 	# Test if at least one element with class="foobar" is visible:
 	assertVisible    .foobar
@@ -103,7 +99,7 @@ If you have a test that spans multiple HTML pages, for example because you click
     # submit the form
     click         input[type="submit"]
     
-    # we should now be on a new page
+    # MockQA will automatically wait for the page to load
     assertText    h1                        Welcome, Menno!
 
 ### Dealing with asynchronous behavior
@@ -113,7 +109,7 @@ MockQA automatically waits for asynchronous activities like Ajax calls and anima
     # This button triggers an ajax request:
     click         button
     
-    # MockQA will automatically wait here
+    # MockQA will automatically wait for the request to complete
     assertText    #target                   Ajax response text
 
 ### Logging to the console
@@ -169,3 +165,4 @@ Helpers are neither actions nor asserts: they help setup the behavior of the tes
 Action     | Arguments  | Explanation
 -----------|------------|------------------------
 `mockjax`  | 2          | Intercepts Ajax requests to [argument1] with contents of [argument2]
+`mockjax`  | 1          | Stops intercepting requests to [argument1]
