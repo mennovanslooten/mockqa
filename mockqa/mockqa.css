@@ -32,10 +32,14 @@
     opacity: 0.9;
     -moz-transition: right 0.3s ease-in-out;
     -webkit-transition: right 0.3s ease-in-out;
+    right: -300px;
+}
+
+.mockqa-loaded #mockqa-testlist {
     right: 0;
 }
 
-.mockqa-active #mockqa-testlist {
+.mockqa-running #mockqa-testlist {
     right: -270px;
 }
 
@@ -281,3 +285,46 @@
     display: none;
 }
 */
+
+#mockqa-testinfo {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);;
+    display: none;
+    font-family: monaco, monospace;
+    font-size: 11px;
+    line-height: 20px;
+    z-index: 999;
+}
+
+#mockqa-testinfo h1 {
+    position: absolute;
+    right: 20%;
+    left: 20%;
+    bottom: 80%;
+    padding: 0 20px;
+    color: #000;
+    font: inherit;
+    font-weight: bold;
+    line-height: 40px;
+    background: #FFF;
+    z-index: 1;
+    margin: 0;
+}
+
+#mockqa-testinfo pre {
+    margin: 0;
+    padding: 20px;
+    background: #FFF;
+    margin: 0;
+    position: absolute;
+    font: inherit;
+    top: 20%;
+    left: 20%;
+    right: 20%;
+    bottom: 20%;
+    overflow: auto;
+}

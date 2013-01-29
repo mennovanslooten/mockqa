@@ -4,6 +4,13 @@
     var _loaded = false;
 
 
+    function queueTest(test) {
+        test.status = 'queued';
+        delete test.action_index;
+        delete test.actions;
+    }
+
+
     function loadMenu(tests, active) {
         if (_loaded) {
             return;
@@ -25,10 +32,7 @@
     function addEventHandlers(tests) {
         _ui.on('click', '[data-index]', function() {
             var index = parseInt($(this).data('index'), 10);
-            var test = tests[index];
-            test.status = 'queued';
-            delete test.action_index;
-            delete test.actions;
+            queueTest(tests[index]);
         });
 
         _ui.on('click', 'a', function(e) {
@@ -37,6 +41,34 @@
 
         _ui.on('click', 'h2', function() {
             $(this).next('ul').find('[data-index]').trigger('click');
+        });
+
+        _ui.on('click', '.mockqa-test-info', function(e) {
+            e.preventDefault();
+
+            var link = $(this);
+            var url = link.attr('href');
+            var test = link.closest('[data-index]').find('.mockqa-test-name').text();
+            $.ajax({
+                url: url,
+                cache: false
+            }).done(function(text) {
+                console.log(test);
+                var info = $('#mockqa-testinfo');
+                info.find('h1').text(url);
+                info.find('pre').html(text);
+                info.show();
+
+                $(document).one('click', function() {
+                    info.hide();
+                });
+            });
+        });
+
+        $('#mockqa-testlist-reload').on('click', function() {
+            M.tests.length = 0;
+            window.name = '';
+            location.reload();
         });
 
         $('#mockqa-testlist-reload').on('click', function() {
@@ -99,7 +131,10 @@
         }
         $.each(tests, function(index, test) {
             var item = _ui.find('[data-index="' + index + '"]');
-            item.attr('class', 'mockqa-test-status-' + test.status);
+            var new_class = 'mockqa-test-status-' + test.status;
+            if (!item.hasClass(new_class)) {
+                item.attr('class', new_class);
+            }
             item.find('.mockqa-test-progress').text(getProgress(test));
             //var is_current_page = location.href.indexOf(active.page) > -1;
             //item.closest('mockqa-test-group').toggleClass('mockqa-current-page', is_current_page);
@@ -108,17 +143,48 @@
 
 
     function showUI(tests, active) {
-        //var is_running = !!active && active.status === 'running';
-        //$('html').toggleClass('mockqa-active', is_running);
-        setTimeout(function() {
-            $('html').toggleClass('mockqa-active', tests.length > 0);
-        }, 1500);
+        var is_loaded = tests.length > 0;
+        if (is_loaded) {
+            var is_running = !!active;
+
+            $('html').toggleClass('mockqa-loaded', is_loaded);
+            $('html').toggleClass('mockqa-running', is_running);
+        }
+    }
+
+    var _active;
+    function traceActive(tests, active) {
+        if (!active && _active || (active && _active && active !== _active)) {
+            console.log('previously active', _active);
+            //var item = _ui.find('[data-index="' + index + '"]');
+        }
+        _active = active;
+    }
+
+
+    function autoStart(tests, active) {
+        if (!tests.length) {
+            return;
+        } else if (!active) {
+            var autostart = location.search.match(/mockqa-autostart-test=(.+)/);
+            if (autostart && autostart.length === 2) {
+                $.each(tests, function(index, test) {
+                    if (location.href.indexOf(test.page) > -1 && test.test === autostart[1]) {
+                        queueTest(test);
+                        return false;
+                    }
+                });
+            }
+            return false;
+        }
     }
 
 
     M.subscribe(loadMenu);
     M.subscribe(updateMenu);
     M.subscribe(showUI);
+    M.subscribe(traceActive);
+    M.subscribe(autoStart);
 
 
 })(jQuery);
