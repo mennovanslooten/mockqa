@@ -105,21 +105,21 @@
 
 
     // Load all resources
-    $('head').append('<link rel="stylesheet" href="' + _base_url + 'mockqa.css" />');
+    $('head').append('<link rel="stylesheet" href="' + _base_url + 'menu/mockqa.css" />');
 
 
     function addScript(file) {
-        document.write('<script src="' + _base_url + file + '.js"></sc' + 'ript>');
+        document.write('<script src="' + _base_url + 'js/' + file + '.js"></sc' + 'ript>');
     }
 
 
     // Bitovi's syn.js is used to simulate user actions
     // http://bitovi.com/blog/2010/07/syn-a-standalone-synthetic-event-library.html
-    addScript('lib/syn');
+    addScript('syn');
 
     // appendTo's jquery.mockjax.js is used to intercept/mock Ajax requests
     // http://enterprisejquery.com/2010/07/mock-your-ajax-requests-with-mockjax-for-rapid-development/
-    addScript('lib/jquery.mockjax');
+    addScript('jquery.mockjax');
 
     // mockqa.ui.js maintains the menu
     addScript('mockqa.ui');

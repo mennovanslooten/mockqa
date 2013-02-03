@@ -18,7 +18,7 @@
         _loaded = true;
 
         $.ajax({
-            url: M.base_url + 'menu.html',
+            url: M.base_url + 'menu/menu.html',
             cache: false
         }).done(function(html) {
             _ui = $(html);
@@ -49,11 +49,11 @@
             var link = $(this);
             var url = link.attr('href');
             var test = link.closest('[data-index]').find('.mockqa-test-name').text();
+
             $.ajax({
                 url: url,
                 cache: false
             }).done(function(text) {
-                console.log(test);
                 var info = $('#mockqa-testinfo');
                 info.find('h1').text(url);
                 info.find('pre').html(text);
