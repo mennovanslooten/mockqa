@@ -1,7 +1,9 @@
 ;(function($, undefined) {
+    var _mockqa_path = $('script').last().attr('src').replace('mockqa.js', '');
+    var _tests_path = $('script').last().data('tests');
     var _url = $('script').last().attr('src');
     var _tests = [];
-    var _base_url = _url.replace('mockqa.js', '');
+    var _mockqa_url = _url;
     var _subscribers = [];
     var _check_delay = 500;
 
@@ -18,7 +20,11 @@
             }
         },
 
-        base_url: _base_url,
+        //base_url: _base_url,
+
+        mockqa_path: _mockqa_path,
+        
+        tests_path: _tests_path,
 
         subscribe: function(handler) {
             _subscribers.push(handler);
@@ -105,11 +111,11 @@
 
 
     // Load all resources
-    $('head').append('<link rel="stylesheet" href="' + _base_url + 'menu/mockqa.css" />');
+    $('head').append('<link rel="stylesheet" href="' + _mockqa_path + 'menu/mockqa.css" />');
 
 
     function addScript(file) {
-        document.write('<script src="' + _base_url + 'js/' + file + '.js"></sc' + 'ript>');
+        document.write('<script src="' + _mockqa_path + 'js/' + file + '.js"></sc' + 'ript>');
     }
 
 

@@ -18,7 +18,7 @@
 
     function loadTestList() {
         $.ajax({
-            url: M.base_url + 'tests/testlist',
+            url: M.tests_path + '/testlist',
             cache: false
         }).done(function(text) {
             var lines = getLineArray(text);
@@ -51,7 +51,7 @@
         }
 
         $.ajax({
-            url: M.base_url + 'tests/' + test.test,
+            url: M.tests_path + '/' + test.test,
             cache: false
         }).done(function(text) {
             test.actions = getLineArray(text);
@@ -94,7 +94,7 @@
         var include_file = parts[1];
 
         $.ajax({
-            url: M.base_url + 'tests/' + include_file,
+            url: M.tests_path + '/' + include_file,
             cache: false
         }).done(function(text) {
             var actions = getLineArray(text);

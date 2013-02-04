@@ -18,7 +18,7 @@
         _loaded = true;
 
         $.ajax({
-            url: M.base_url + 'menu/menu.html',
+            url: M.mockqa_path + 'menu/menu.html',
             cache: false
         }).done(function(html) {
             _ui = $(html);
@@ -71,12 +71,6 @@
             location.reload();
         });
 
-        $('#mockqa-testlist-reload').on('click', function() {
-            M.tests.length = 0;
-            window.name = '';
-            location.reload();
-        });
-
         $('#mockqa-testlist-runall').on('click', function() {
             _ui.find('[data-index]').trigger('click');
         });
@@ -110,7 +104,7 @@
             html += '<div class="mockqa-test-group"><h2>' + page + '</h2>';
             html += '<ul>';
             $.each(items, function(index, item) {
-                var test_url = M.base_url + 'tests/' + item.test.test;
+                var test_url = M.tests_path + '/' + item.test.test;
                 html += '<li data-index="' + item.index + '">';
                 html += '<div class="mockqa-test-name">' + item.test.test + '</div>';
                 html += '<div class="mockqa-test-progress"/>';

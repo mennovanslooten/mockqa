@@ -155,7 +155,7 @@
                 if (localStorage) {
                     localStorage.clear();
                 }
-                location.href = M.base_url + '../' + active.page;
+                location.href = M.tests_path + '/../' + active.page;
             }, 500);
         }
     }

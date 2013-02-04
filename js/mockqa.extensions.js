@@ -23,7 +23,7 @@
 
             if (filename) {
                 console.info('mockjax', url, filename);
-                var proxy = $.mockqa.base_url + 'tests/mockjax/' + filename;
+                var proxy = $.mockqa.tests_path + '/mockjax/' + filename;
                 _mockjaxed[url] = $.mockjax({
                     log: function() {},
                     url: url,
