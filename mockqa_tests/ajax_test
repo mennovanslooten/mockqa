@@ -1,0 +1,26 @@
+## Trigger the Ajax call and check if response has been loaded
+click         #go
+assertText    #target                 Actual ajax response
+
+## Setup mockjax to intercept request
+# This setup will mock requests to "ajax-response.html"
+# with the file "mockqa/tests/mockjax/mocked-response.html"
+mockjax       ajax-response.html      mocked-response.html
+
+## Trigger the Ajax call and check if response has been mocked
+click         #go
+assertText    #target                 Mocked ajax response
+
+## Redefine mockjax setup
+mockjax       ajax-response.html      mocked-response.2.html
+
+## Trigger the Ajax call and check if response has been mocked differently
+click         #go
+assertText    #target                 Other mocked ajax response
+
+## Clear mockjax setup
+mockjax       ajax-response.html
+
+## Trigger the Ajax call and check that response has not been mocked
+click         #go
+assertText    #target                 Actual ajax response
