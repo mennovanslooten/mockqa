@@ -1,0 +1,6 @@
+[submodule "mockqa"]
+	path = mockqa
+	url = https://github.com/mennovanslooten/mockqa.git
+[submodule "demos"]
+	path = demos
+	url = https://github.com/mennovanslooten/mockqa.git
