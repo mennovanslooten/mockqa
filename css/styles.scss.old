@@ -1,0 +1,368 @@
+* {
+    -o-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    overflow-y: scroll;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+    background: #A0A0A0;
+    color: #666;
+    font-family: 'Open Sans', sans-serif;
+    font-size: .95em;
+    line-height: 1.7;
+
+    > * {
+        width: 60em;
+        padding: 0;
+        margin: 0 auto 2em;
+        text-shadow: 0 1px rgba(255, 255, 255, 0.4);
+    }
+}
+
+header {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+
+        li {
+            margin: 0;
+            padding: 0 2em;
+            display: inline;
+        }
+    }
+
+    a:link {
+        color: #000;
+    }
+}
+
+
+a {
+    &:link { color: #D00; text-decoration: none; }
+    &:hover { color: #F30; }
+    &:visited { color: #C33; }
+
+    &.button {
+        display: inline-block;
+        background: #D00;
+        background: -webkit-linear-gradient(top, #D00, #900);
+        background:    -moz-linear-gradient(top, #D00, #900);
+        background:     -ms-linear-gradient(top, #D00, #900);
+        background:      -o-linear-gradient(top, #D00, #900);
+        background:         linear-gradient(top, #D00, #900);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        padding: 0 1em;
+        border-radius: .75em;
+        color: #FFF;
+        text-shadow: 0 -1px rgba(0,0,0,0.5);
+        text-decoration: none;
+        opacity: 0.75;
+    }
+
+    &.button:hover {
+        opacity: 1;
+    }
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+hgroup {
+}
+
+h1 {
+    /*padding: 20px 20px 0;*/
+    text-align: center;
+    font-size: 4em;
+    margin-bottom: 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 2em;
+    font-weight: normal;
+}
+
+#intro p {
+    text-align: center;
+    font-size: 1.5em;
+    /*color: black;*/
+}
+
+pre,
+code {
+    font-family: Consolas, Monaco, monospace;
+}
+
+code {
+    font-family: Consolas, Monaco, monospace;
+    background: rgba(255,255,255,0.25);
+    font-weight: normal;
+    border-radius: 0.25em;
+    padding: 0 0.25em;
+    margin: 0 0.25em;
+}
+
+pre {
+    padding: 20px;
+    background: #FFF;
+    margin-top: 20px;
+    font-size: 90%;
+    text-shadow: none;
+    color: #999;
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.25);;
+}
+
+
+
+#grid {
+    line-height: 2em;
+    height: 2em;
+    background: #FFF;
+
+    div {
+        width: 20em;
+        border-left: 1em solid #FF0;
+        border-right: 1em solid #FF0;
+        background:#FFC;
+        float: left;
+        text-align: center;
+
+        &:nth-child(odd) {
+            background: green;
+            border-color: #0F0;
+        }
+    }
+}
+
+#blocks {
+
+    > section {
+        position: relative;
+        padding: 0;
+        margin-bottom: 1px;
+
+        h2 {
+            font-size: 2em;
+        }
+
+        > section {
+            background: #ff0;
+            background: -webkit-linear-gradient(top, rgba(255,255,255,0.5), rgba(255,255,255,0.3));
+            background:    -moz-linear-gradient(top, rgba(255,255,255,0.5), rgba(255,255,255,0.3));
+            background:     -ms-linear-gradient(top, rgba(255,255,255,0.5), rgba(255,255,255,0.3));
+            background:      -o-linear-gradient(top, rgba(255,255,255,0.5), rgba(255,255,255,0.3));
+            background:         linear-gradient(top, rgba(255,255,255,0.5), rgba(255,255,255,0.3));
+            padding: 2em 1em 2em 1em;
+            margin-left: 20em;
+            position: relative;
+
+            h3 {
+                position: absolute;
+                left: -13.33em;
+                top: 0;
+                font-size: 1.5em;
+                padding: 2em .66em;
+                width: 13.33em;
+                text-align: right;
+            }
+        }
+    }
+}
+
+/*
+#steps {
+    .step {
+        position: relative;
+        background: yellow;
+        padding: 0 0 0 20em;
+
+        h3 {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+}
+*/
+
+/*
+#tabs {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1px;
+    height: 3em;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+
+    li {
+        line-height: 3em;
+        float: left;
+        width: 18.66em;
+        padding: 0;
+        margin: 0 0 0 2em;
+
+        &:first-child {
+            margin: 0;
+        }
+
+        a {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            display: block;
+            color: #333;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.5);
+            }
+            border-radius: .5em .5em 0 0;
+        }
+
+        &.active {
+            a {
+                background: rgba(255, 255, 255, 0.5);
+            }
+        }
+    }
+}
+*/
+
+
+
+
+/*
+#steps {
+    counter-reset: step;
+    padding: 0;
+}
+
+.step {
+    background: white;
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0.5), rgba(255,255,255,0.3));
+    background:    -moz-linear-gradient(top, rgba(255,255,255,0.5), rgba(255,255,255,0.3));
+    background:     -ms-linear-gradient(top, rgba(255,255,255,0.5), rgba(255,255,255,0.3));
+    background:      -o-linear-gradient(top, rgba(255,255,255,0.5), rgba(255,255,255,0.3));
+    background:         linear-gradient(top, rgba(255,255,255,0.5), rgba(255,255,255,0.3));
+    padding: 20px 20px 20px 460px;
+    padding: 2em 2em 2em 32em;
+    position: relative;
+    margin-bottom: 1px;
+    overflow: hidden;
+    box-shadow: 0 1px rgba(255,255,255,0.3) inset;
+
+    &:first-child {
+        box-shadow: none;
+    }
+
+    &:before {
+        font-family: 'Open Sans Condensed', sans-serif;
+        content: counter(step);
+        counter-increment: step;
+        position: absolute;
+        left: 0;
+        top: 10px;
+        top: 50%;
+        margin-top: -0.5em;
+        font-size: 5em;
+        line-height: 1em;
+        opacity: 0.1;
+        font-weight: bold;
+        text-shadow: 0 -1px black;
+        width: 1em;
+        text-align: center;
+        -moz-transition: opacity 0.3s ease-in-out;
+    }
+
+    &:after {
+        position: absolute;
+        left: 1em;
+        font-size: 5em;
+        top: 0;
+        bottom: 0;
+        border-right: 1px solid rgba(255,255,255,0.2);
+        border-left: 1px solid rgba(0,0,0,0.2);
+        content: "";
+    }
+
+    h3 {
+        color: #555;
+        position: absolute;
+        left: 4em;
+        top: 1.33em;
+        font-size: 1.5em;
+        line-height: 1em;
+        width: 16em;
+        text-align: right;
+    }
+
+    h3:before {
+        font-weight: normal;
+        content: "Step " counter(step) ": ";
+    }
+}
+
+#why {
+    position: relative;
+    background: #FFF;
+    background: rgba(255,255,255,0.5);
+    padding: 2em;
+
+    h2 {
+        padding-bottom: 1em;
+        font-weight: bold;
+    }
+
+    p {
+        -moz-column-count: 2;
+        -moz-column-spacing: 2em;
+    }
+
+}
+
+#demo {
+    position: relative;
+    background: #FFF;
+    background: rgba(255,255,255,0.5);
+    padding: 2em;
+
+    .button {
+        position: absolute;
+        left: 2em;
+        width: 10em;
+        text-align: center;
+    }
+
+    h2 {
+        padding-bottom: 1em;
+        font-weight: bold;
+    }
+
+    p {
+        padding-left: 15em;
+        padding-bottom: 2em;
+    }
+}
+
+
+*/

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Write - MockQA - Functional Testing in minutes</title>
+
+        <meta name="author" content="@mennovanslooten">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+
+    <body>
+
+        <hgroup>
+            <h1>MockQA</h1>
+        </hgroup>
+
+        <section id="intro">
+            <ul>
+                <li><a href="index.html" class="button">Home</a></li>
+                <li><a href="download.html" class="button">Download</a></li>
+                <li><a href="write.html" class="button">Write</a></li>
+                <li><a href="run.html" class="button active">Run</a></li>
+            </ul>
+        </section>
+
+
+            <article>
+                <h1>How to run a MockQA test</h1>
+                <p>Now that you know <a href="write.html">how to write a test</a> you need to run it. To do this, you need to take 4 steps:</p>
+                <ol>
+                    <li>Save the test file.</li>
+                    <li>Write a testlist that binds tests to HTML files.</li>
+                    <li>Include MockQA in your HTML.</li>
+                    <li>Open the HTML page in a browser and choose the test from the MockQA menu.</li>
+                </ol>
+
+                <hr>
+                <h2>Saving test files</h2>
+                <div class="twocol">
+                    <p>Let's assume your project's directory structure looks like this after <a href="download.html">downloading MockQA</a>:</p>
+                    <pre>
+▶ myproject
+    ▶ mockqa
+    index.html</pre>
+                </div>
+
+                <div class="twocol">
+                    <p>Now, you have to <strong>create a directory</strong> where MockQA can find test files. You can use whatever name you like and put it wherever you like (as long as it's accessible through HTTP) but I recommend calling it <code>mockqa_tests</code> and putting it in the root of your project.</p>
+                    <pre>
+▶ myproject
+    ▶ mockqa
+    ▶ <strong>mockqa_tests</strong>
+    index.html</pre>
+                </div>
+
+                <div class="twocol">
+                    <p>Now, <strong>save your test</strong> in this directory. For example, let's call it <code>login_test</code>.</p>
+                    <pre>
+▶ myproject
+    ▶ mockqa
+    ▶ mockqa_tests
+        <strong>login_test</strong>
+    index.html</pre>
+                </div>
+
+                <hr>
+                <h2>Writing a test listing</h2>
+
+                <div class="twocol">
+                    <p>MockQA needs to know which tests should test which pages. To specify this, you need to <strong>add a file</strong> called <code>testlist</code> to the <code>mockqa_tests</code> directory:</p>
+                <pre>
+▶ myproject
+    ▶ mockqa
+    ▶ mockqa_tests
+        <strong>testlist</strong>
+        login_test
+    index.html</pre>
+                </div>
+
+                <div class="twocol">
+                    <p>To be able to run <code>login_test</code> on <code>index.html</code>, open this <code>testlist</code> file in a text editor and enter this:</p>
+                    <pre>login_test      index.html</pre>
+                </div>
+
+
+                <hr>
+                <h2>Include MockQA</h2>
+                <p>To include MockQA, add the following line to your HTML right before the closing <code>&lt;/body&gt;</code> tag.</p>
+                <pre>
+&ltscript data-tests="mockqa_tests" src="mockqa/mockqa.js"&gt;&lt;/script&gt;</pre>
+                <p>The <code>data-tests</code> attribute should contain the path to the directory containing the MockQA tests and testlist.</p>
+
+                <hr>
+                <h2>Open the HTML and run the test</h2>
+                <div class="twocol">
+                    <div>
+                        <p>If you open your HTML file in a browser you should see something like this on the right side of the page. This example has several tests specified for several HTML files.</p>
+                        <ul>
+                            <li>To run a test, click its name in the menu.</li>
+                            <li>To run all tests for an HTML file in a row, click it's name.</li>
+                            <li>To run all tests in a row, click the <strong>RUN ALL</strong> button.</li>
+                        </ul>
+                    </div>
+                    <img src="img/menu.png"/>
+                 </div>
+            </article>
+    
+        <footer>
+            <p>&copy; 2013 <a href="https://twitter.com/mennovanslooten">@mennovanslooten</a></p>
+        </footer>
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="mockqa/mockqa.js"></script>
+        <script src="js/main.js"></script>
+
+
+    </body>
+</html>
+
+
+
+
+
+
+
+

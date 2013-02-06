@@ -1,1 +1,127 @@
-My GitHub Page
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>MockQA - Functional Testing in minutes</title>
+
+        <meta name="author" content="@mennovanslooten">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+
+    <body>
+
+        <hgroup>
+            <h1>MockQA</h1>
+            <h2>Functional Testing in minutes</h2>
+        </hgroup>
+
+        <section id="intro">
+            <p>Are you a developer using jQuery? With <strong>MockQA</strong> you can write and run functional tests for your projects in a couple of minutes.</p>
+        </section>
+
+
+        <section id="how">
+            <h2>How?</h2>
+
+            <section class="block">
+                <h3>
+                    <a class="button" href="download.html" title="More info about downloading and installing MockQA">Get MockQA</a>
+                </h3>
+                <p>
+                    Either <a href="https://github.com/mennovanslooten/mockqa/archive/master.zip">download the ZIP</a> or <a href="https://github.com/mennovanslooten/mockqa/">clone from github</a>.
+                    Then copy the <code>mockqa</code> directory into the project you want to test. 
+                </p>
+                
+            </section>
+
+            <section class="block">
+                <h3>
+                    <a class="button" href="write.html" title="More info about writing MockQA testcases">Write tests</a>
+                </h3>
+                <p>
+                Write tests using <strong>plain English</strong> and <strong>CSS selectors</strong>, including <a href="http://api.jquery.com/category/selectors/">jQuery's selector extensions</a>.
+                </p>
+                <pre>
+type           [name="firstname"]     Bruce
+click          :submit
+assertText     #greeting              Hi, Bruce!
+</pre>
+                
+            </section>
+
+            <section class="block">
+                <h3>
+                    <a class="button" href="#" title="More info about running MockQA testcases">Run tests</a>
+                </h3>
+                <p>
+                    Tests can be run in any browser on any device. No installers, no plugins.
+                </p>
+                
+            </section>
+        </section>
+
+        <!--
+
+        <section id="why">
+            <h2>Why?</h2>
+            <section class="block">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </section>
+        </section>
+        -->
+
+
+        <section id="demo">
+            <h2>Demos</h2>
+
+            <section class="block">
+                <h3>
+                    <a class="button" href="demo/demo/backbone/index.html?mockqa-autostart-test=todo_test">Backbone Demo</a>
+                </h3>
+                <p><a href="http://todomvc.com/">TodoMVC</a> is a standardized example app for JavaScript MVC frameworks. This demo tests every interactive component of the Backbone example in a couple of seconds.</p>
+            </section>
+
+            <section class="block">
+                <h3>
+                    <a class="button" href="demo/demo/jqueryui/index.html?mockqa-autostart-test=jqueryui_test">jQuery UI Demo</a>
+                </h3>
+                <p><a href="http://jqueryui.com/">jQuery UI</a> is <em>the</em> widgets and effects library for jQuery. This demo shows how MockQA can test widgets like tabs, autocompletes and accordions.</p>
+            </section>
+
+            <section class="block">
+                <h3>
+                    <a class="button" href="demo/demo/form/index.html?mockqa-autostart-test=form_test">Forms &amp; links Demo</a>
+                </h3>
+                <p>This demo shows functional tests for standard form elements like text inputs, selects, radiobuttons and checkboxes. The demo also shows that you can have one test run across multiple pages.</p>
+            </section>
+
+            <section class="block">
+                <h3>
+                    <a class="button" href="demo/demo/ajax/index.html?mockqa-autostart-test=ajax_test">Ajax &amp; mocking Demo</a>
+                </h3>
+                <p><a href="https://github.com/appendto/jquery-mockjax">Mockjax</a> is a jQuery plugin by <a href="https://twitter.com/jdsharp">Jonathan Sharp</a> that allows you to intercept and mock Ajax requests from your code. This is very useful during debugging, development and, yes, testing. This demo shows how to configure mockjax from within a MockQA test.</p>
+            </section>
+        </section>
+    
+        <footer>
+            <p>&copy; 2013 <a href="https://twitter.com/mennovanslooten">@mennovanslooten</a></p>
+        </footer>
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="mockqa/mockqa.js"></script>
+        <script src="js/main.js"></script>
+
+
+    </body>
+</html>
+
+
+
+
+
+

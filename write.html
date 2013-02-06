@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Write - MockQA - Functional Testing in minutes</title>
+
+        <meta name="author" content="@mennovanslooten">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+
+    <body>
+
+        <hgroup>
+            <h1>MockQA</h1>
+        </hgroup>
+
+        <section id="intro">
+            <ul>
+                <li><a href="index.html" class="button">Home</a></li>
+                <li><a href="download.html" class="button">Download</a></li>
+                <li><a href="write.html" class="button active">Write</a></li>
+                <li><a href="run.html" class="button">Run</a></li>
+            </ul>
+        </section>
+
+
+            <article>
+                <h1>How to write a MockQA test</h1>
+                <p>MockQA tests are written in a custom format designed to be easy to write and easy to read. For example, here's what a test could look like for a simple login form:</p>
+<pre>
+# First, enter incomplete credentials
+type               #username           johndoe
+click              #submit
+assertText         .errorMessage       "Please fill in your password"
+
+# Then, enter wrong credentials
+type               #password           notmypassword
+click              #submit
+assertText         .errorMessage       "Username or password incorrect"
+
+# Then, enter correct credentials
+type               #password           myactualpassword
+click              #submit
+assertHidden       .errorMessage
+assertText         #welcome            Welcome, John Doe!
+</pre>
+                <hr>
+                <p>Let's go over this line by line:</p>
+                <pre># First, enter incomplete credentials</pre>
+                <p>Line's starting with <code>#</code> are comments. Their contents are completely ignored.</p> 
+                <pre>type               #username           johndoe</pre>
+                <p>This is a <strong>simulated user action</strong>. In this case it simulates pressing the keys to type "johndoe" in the element with <code>id="username"</code>.</p>
+                <pre>click              #submit</pre>
+                <p>You probably already guessed that this simulates a left mouse click on the element with <code>id="submit"</code>.</p>
+                <pre>assertText         .errorMessage       "Please fill in your password"</pre>
+                <p>This line checks if there is an element with <code>class="errorMessage"</code> that contains the text "Please fill in your password".</p>
+                <h2>API</h2>
+                <p>There are a couple of more actions you can simulate besides <code>click</code> and <code>type</code> as well as quite a number of asserts in addition to <code>assertText</code>. You can find them in the <a href="api.html">API documentation</a>.</p>
+                <hr>
+                <p><strong>Next up:</strong> <a href="run.html">running tests</a>.</p>
+                <!--
+                <ol>
+                    <li><a href="#comments">Comments</a></li>
+                    <li>
+                        <a href="#actions">User Actions</a>
+                        <ol>
+                            <li><a href="#click"><code>click</code></a></li>
+                            <li><a href="#type"><code>type</code></a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#asserts">Asserts</a></li>
+                </ol>
+
+                <h2 id="comments">Comments</h2>
+                <p>Lines starting with <code>#</code> are completely ignored. MockQA tests only have line comments, no block comments. </p>
+                <pre>
+# This is a comment. Comments and empty lines are ignored
+</pre>
+
+                <h2 id="actions">User actions</h2>
+                <p>MockQA can simulate several actions as though they were triggered by an actual user. The most common action is <code>click</code> simulating a mouse click on a certain element.</p>
+
+
+
+
+                <h3><code>click</code></h3>
+<pre>
+click      #some-button
+</pre>
+
+                <p>Here, the CSS selector <code>#some-button</code> was used. You can use <a href="http://api.jquery.com/category/selectors/">any selector supported by jQuery</a>. If a selector results in multiple elements, the first element that is visible is used for the action.</p>
+                <p><strong>Actions will trigger whatever would've been triggered by a user performing it.</strong> If event handlers are attached they will be fired. If a link is clicked, it will be followed. If a submit button is clicked, it will submit the form.</p>
+
+                <h3><code>type</code></h3>
+                <p>After <code>click</code> this is probably the most common user action to simulate: typing text into an <code>&lt;input&gt;</code> field or <code>&lt;textarea&gt;</code>
+<pre>
+click      #some-button
+</pre>
+
+<pre>
+
+# Other lines are commands. Most commands have an action and a target.
+
+click             #my-button
+
+# Targets are CSS selectors like #some-id, .some-class or a[href]. 
+# jQuery extensions like :text and :password are also allowed.
+# In fact, everything that jQuery allows is allowed. 
+# See: http://api.jquery.com/category/selectors/
+
+click             #container > a.tab:not(.active)
+
+# Some actions require an argument
+
+type              #my-input        Hello, world.
+
+# Actions, targets and arguments are separated by 2 or more spaces. 
+# I recommend at least 4 for optimal readability.
+
+# Asserts are special kinds of commands that test the page for a certain condition.
+# If an assert fails, the test fails. 
+
+# Test if at least one element with class="foobar" is visible:
+assertVisible    .foobar
+
+# Test if the submit button has the text "GO!":
+assertText       :submit            GO!
+
+# Some asserts don't require a target
+assertTitle       MockQA Homepage Title
+                </pre>
+                -->
+
+            </article>
+    
+        <footer>
+            <p>&copy; 2013 <a href="https://twitter.com/mennovanslooten">@mennovanslooten</a></p>
+        </footer>
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="mockqa/mockqa.js"></script>
+        <script src="js/main.js"></script>
+
+
+    </body>
+</html>
+
+
+
+
+
+
+
