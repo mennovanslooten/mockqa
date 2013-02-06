@@ -200,7 +200,9 @@ pre {
   border-left: 4em solid #a0a0a0;
   border-right: 4em solid #a0a0a0;
   border-top: 2em solid transparent;
-  -moz-box-sizing: border-box; }
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
 #how .block:last-child:after, #how .block:last-child:before {
   display: none; }
 

@@ -267,7 +267,9 @@ pre {
             border-left: 4em solid #a0a0a0;
             border-right: 4em solid #a0a0a0;
             border-top: 2em solid transparent;
+            -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
+            box-sizing: border-box;
         }
 
         &:last-child {
