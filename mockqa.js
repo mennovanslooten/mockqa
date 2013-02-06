@@ -62,10 +62,9 @@
     var _prev_stringified = '';
     function checkForUpdates() {
         var curr_stringified = JSON.stringify(M.tests);
-        var active = null;
+        var active = getFirstActiveTest();
 
         if (curr_stringified !== _prev_stringified) {
-            active = getFirstActiveTest();
 
             $.each(_subscribers, function(index, handler) {
                 if ($.isFunction(handler)) {
