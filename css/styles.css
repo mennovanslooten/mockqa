@@ -79,16 +79,28 @@ a.button {
   text-decoration: none;
   opacity: 0.75;
   border: 1px solid #990000; }
-a.button:hover {
-  opacity: 1; }
-a.button.active, a.button:active {
-  background: -webkit-linear-gradient(top, #b30000, #990000);
-  background: -moz-linear-gradient(top, #b30000, #990000);
-  background: -ms-linear-gradient(top, #b30000, #990000);
-  background: -o-linear-gradient(top, #b30000, #990000);
-  background: linear-gradient(top, #b30000, #990000);
-  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 4px rgba(0, 0, 0, 0.25) inset;
-  opacity: 1; }
+  a.button:hover {
+    opacity: 1; }
+  a.button.active, a.button:active {
+    background: -webkit-linear-gradient(top, #b30000, #990000);
+    background: -moz-linear-gradient(top, #b30000, #990000);
+    background: -ms-linear-gradient(top, #b30000, #990000);
+    background: -o-linear-gradient(top, #b30000, #990000);
+    background: linear-gradient(top, #b30000, #990000);
+    box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 4px rgba(0, 0, 0, 0.25) inset;
+    opacity: 1; }
+  a.button.prev {
+    float: left;
+    line-height: 2em; }
+    a.button.prev:before {
+      font-weight: bold;
+      content: "Previous: "; }
+  a.button.next {
+    float: right;
+    line-height: 2em; }
+    a.button.next:before {
+      font-weight: bold;
+      content: "Next: "; }
 a.readmore {
   font-style: italic; }
 
