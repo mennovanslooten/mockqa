@@ -5,3 +5,4 @@ form_test          form/index.html
 include_test       form/index.html
 ajax_test          ajax/index.html
 jqueryui_test      jqueryui/index.html
+flight_test        flight/index.html
