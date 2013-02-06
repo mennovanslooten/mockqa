@@ -263,6 +263,9 @@ article {
         float: left; }
     article > .twocol > pre {
       width: 20em; }
+    article > .twocol .button {
+      line-height: 2em;
+      text-align: center; }
   article h1 {
     font-size: 2em;
     margin: 0; }
