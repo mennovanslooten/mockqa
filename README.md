@@ -40,5 +40,5 @@ assertText       :submit            GO!
 assertTitle       MockQA Homepage Title
 ```
  
-MockQA isn't finished yet and severely lacking in documentation. For more information visit http://mennovanslooten.github.com/mockqa/.
+MockQA a work in progress and severely lacking in documentation. For more information visit http://mennovanslooten.github.com/mockqa/.
 
