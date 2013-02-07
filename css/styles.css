@@ -132,7 +132,11 @@ hgroup h2 {
   background: #FFF;
   background: rgba(255, 255, 255, 0.1);
   background: #cc0000;
+  background: -webkit-linear-gradient(bottom, #cc0000, #b30000);
   background: -moz-linear-gradient(bottom, #cc0000, #b30000);
+  background: -ms-linear-gradient(bottom, #cc0000, #b30000);
+  background: -o-linear-gradient(bottom, #cc0000, #b30000);
+  background: linear-gradient(bottom, #cc0000, #b30000);
   color: #FFF;
   padding: 2em 0;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3) inset;
@@ -211,6 +215,7 @@ pre {
   margin: 0 0 0 16em;
   margin: 0;
   padding: 2em;
+  background: #CFCFCF;
   background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3));
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3));
   background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3));
