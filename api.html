@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Download - MockQA - Functional Testing in minutes</title>
+        <title>API - MockQA - Functional Testing in minutes</title>
 
         <meta name="author" content="@mennovanslooten">
         <meta name="keywords" content="">
@@ -34,7 +34,151 @@
         <article>
             <h1>API</h1>
 
-            <p>Nothing here, yet. Sorry!</p>
+            <h2>Actions</h2>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Action</th>
+                        <th>Target</th>
+                        <th>Argument</th>
+                        <th>Explanation</th>
+                    </tr>
+                    <tr>
+                        <td><code>click</code></td>
+                        <td>required</td>
+                        <td>no</td>
+                        <td>Clicks the target</td>
+                    </tr>
+                    <tr>
+                        <td><code>type</code></td>
+                        <td>required</td>
+                        <td>yes</td>
+                        <td>Types [argument] into the target</td>
+                    </tr>
+                    <tr>
+                        <td><code>dblclick</code></td>
+                        <td>required</td>
+                        <td>no</td>
+                        <td>Double-clicks the target</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>All actions require <code>assertVisible</code> to pass for the target. Some actions are simulated by the excellent <a href="https://github.com/bitovi/syn">syn</a> library by <a href="http://www.bitovi.com/">bitovi</a>. More actions like <code>focus</code>, <code>mouseover</code>, <code>mouseout</code> should be added soon.</p>
+
+            <hr>
+
+            <h2>Asserts</h2>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Assert</th>
+                        <th>Target</th>
+                        <th>Argument</th>
+                        <th>Explanation</th>
+                    </tr>
+                    <tr>
+                        <td><code>assertPage</code></td>
+                        <td>no</td>
+                        <td>yes</td>
+                        <td>Asserts [argument] is in the current URL</td>
+                    </tr>
+                    <tr>
+                        <td><code>assertTitle</code></td>
+                        <td>no</td>
+                        <td>yes</td>
+                        <td>Asserts [argument] is in the current window title</td>
+                    </tr>
+                    <tr>
+                        <td><code>assertVisible</code></td>
+                        <td>yes</td>
+                        <td>no</td>
+                        <td>Asserts target is visible</td>
+                    </tr>
+                    <tr>
+                        <td><code>assertHidden</code></td>
+                        <td>yes</td>
+                        <td>no</td>
+                        <td>Asserts target is invisible or doesn't exist</td>
+                    </tr>
+                    <tr>
+                        <td><code>assertDisabled</code></td>
+                        <td>yes</td>
+                        <td>no</td>
+                        <td>Asserts target is disabled</td>
+                    </tr>
+                    <tr>
+                        <td><code>assertEnabled</code></td>
+                        <td>yes</td>
+                        <td>no</td>
+                        <td>Asserts target is enabled</td>
+                    </tr>
+                    <tr>
+                        <td><code>assertText</code></td>
+                        <td>yes</td>
+                        <td>yes</td>
+                        <td>Asserts target's text contains [argument]</td>
+                    </tr>
+                    <tr>
+                        <td><code>assertNotClass</code></td>
+                        <td>yes</td>
+                        <td>yes</td>
+                        <td>Asserts target's CSS class does not contain [argument]</td>
+                    </tr>
+                    <tr>
+                        <td><code>assertHasClass</code></td>
+                        <td>yes</td>
+                        <td>yes</td>
+                        <td>Asserts target's CSS class contains [argument]</td>
+                    </tr>
+                    <tr>
+                        <td><code>assertValue</code></td>
+                        <td>yes</td>
+                        <td>yes</td>
+                        <td>Asserts target's value is [argument]</td>
+                    </tr>
+                    <tr>
+                        <td><code>assertLength</code></td>
+                        <td>yes</td>
+                        <td>yes</td>
+                        <td>Asserts [argument] number of visible elements match [target]</td>
+                    </tr>
+                    <tr>
+                        <td><code>assertEmpty</code></td>
+                        <td>yes</td>
+                        <td>yes</td>
+                        <td>Asserts target has no children</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr>
+
+            <h2>Helpers</h2>
+
+            <p>Helpers are neither actions nor asserts: they help setup the behavior of the test environment. Helpers don't have a target on the page but can have multiple arguments.</p>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Action</th>
+                        <th>Arguments</th>
+                        <th>Explanation</th>
+                    </tr>
+                    <tr>
+                        <td><code>mockjax</code></td>
+                        <td>2</td>
+                        <td>Intercepts Ajax requests to [argument1] with contents of [argument2]</td>
+                    </tr>
+                    <tr>
+                        <td><code>mockjax</code></td>
+                        <td>1</td>
+                        <td>Stops intercepting requests to [argument1]</td>
+                    </tr>
+                </tbody>
+            </table>
 
         </article>
     

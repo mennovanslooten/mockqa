@@ -396,4 +396,22 @@ article {
     ul, ol {
         margin: 2em 0 2em 2em;
     }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+
+        td, th {
+            text-align: left;
+            padding: .25em 2em .24em 0;
+            border-bottom: .01em solid #CCC;
+
+            code {
+                margin: 0;
+                padding: 0;
+                background: transparent;
+            }
+        }
+    }
 }
