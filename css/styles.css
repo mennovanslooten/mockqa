@@ -151,7 +151,7 @@ hgroup h2 {
   background: -o-linear-gradient(bottom, #cc0000, #b30000);
   background: linear-gradient(bottom, #cc0000, #b30000);
   color: #FFF;
-  padding: 2em 0 6em;
+  padding: 2em 0;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3) inset;
   border-bottom: 1px solid #CCC; }
   #intro ul,
@@ -170,6 +170,9 @@ hgroup h2 {
       padding: 0; }
       #intro ul li a {
         font-family: 'Open Sans Condensed', sans-serif; }
+
+.home #intro {
+  padding-bottom: 6em; }
 
 pre,
 code {

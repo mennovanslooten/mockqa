@@ -206,7 +206,7 @@ hgroup {
     background:      -o-linear-gradient(bottom, $highlight, darken($highlight, 5%));
     background:         linear-gradient(bottom, $highlight, darken($highlight, 5%));
     color: #FFF;
-    padding: 2em 0 6em;
+    padding: 2em 0;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3) inset;
     border-bottom: 1px solid #CCC;
 
@@ -233,6 +233,10 @@ hgroup {
             }
         }
     }
+}
+
+.home #intro {
+    padding-bottom: 6em;
 }
 
 pre,
