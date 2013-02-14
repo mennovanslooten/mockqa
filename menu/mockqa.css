@@ -193,7 +193,7 @@
     top: 0;
     width: 30px;
     bottom: 0;
-    content: "∙";
+    /*content: "∙";*/
     font-size: 15px;
     text-align: center;
     font-style: normal;
