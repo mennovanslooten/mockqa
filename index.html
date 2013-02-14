@@ -30,87 +30,98 @@
         </section>
 
 
-        <section id="how">
-            <h2>How?</h2>
+        <div class="tabs">
+            <section id="how">
+                <h2>How?</h2>
 
-            <section class="block">
-                <h3>
-                    <a class="button" href="download.html" title="More info about downloading and installing MockQA">Get MockQA</a>
-                </h3>
-                <p>
-                    You can either <a href="https://github.com/mennovanslooten/mockqa/archive/master.zip">download the ZIP</a> or <a href="https://github.com/mennovanslooten/mockqa/">clone directly from github</a>.
-                </p>
-                
-            </section>
+                <section class="block">
+                    <h3>
+                        <a class="button" href="download.html" title="More info about downloading and installing MockQA">Get MockQA</a>
+                    </h3>
+                    <p>
+                        You can either <a href="https://github.com/mennovanslooten/mockqa/archive/master.zip">download the ZIP</a> or <a href="https://github.com/mennovanslooten/mockqa/">clone directly from github</a>.
+                    </p>
+                    
+                </section>
 
-            <section class="block">
-                <h3>
-                    <a class="button" href="write.html" title="More info about writing MockQA testcases">Write tests</a>
-                </h3>
-                <p>
-                Write tests using <strong>plain English</strong> and <strong>CSS selectors</strong>, including <a href="http://api.jquery.com/category/selectors/">jQuery's selector extensions</a>.
-                </p>
-                <pre>
+                <section class="block">
+                    <h3>
+                        <a class="button" href="write.html" title="More info about writing MockQA testcases">Write tests</a>
+                    </h3>
+                    <p>
+                    Write tests using <strong>plain English</strong> and <strong>CSS selectors</strong>, including <a href="http://api.jquery.com/category/selectors/">jQuery's selector extensions</a>.
+                    </p>
+                    <pre>
 type           [name="firstname"]     Bruce
 click          :submit
 assertText     #greeting              Hi, Bruce!
 </pre>
                 
+                </section>
+
+                <section class="block">
+                    <h3>
+                        <a class="button" href="run.html" title="More info about running MockQA testcases">Run tests</a>
+                    </h3>
+                    <p>
+                        Tests can be run in any browser on any device. No installers, no plugins.
+                    </p>
+                    
+                </section>
             </section>
 
-            <section class="block">
-                <h3>
-                    <a class="button" href="run.html" title="More info about running MockQA testcases">Run tests</a>
-                </h3>
-                <p>
-                    Tests can be run in any browser on any device. No installers, no plugins.
-                </p>
-                
-            </section>
-        </section>
 
-        <!--
+            <section id="why">
+                <h2>Why?</h2>
 
-        <section id="why">
-            <h2>Why?</h2>
-            <section class="block">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </section>
-        </section>
-        -->
-
-
-        <section id="demo">
-            <h2>Demos</h2>
-
-            <section class="block">
-                <h3>
-                    <a class="button" target="_blank" href="demos/backbone/index.html?mockqa-autostart-test=todo_test">Backbone Demo</a>
-                </h3>
-                <p><a href="http://todomvc.com/">TodoMVC</a> is a standardized example app for JavaScript MVC frameworks. This demo tests every interactive component of the Backbone example in a couple of seconds.</p>
+                <section class="block">
+                    <p><strong>MockQA is designed to quickly let you automate the manual testing that gets in the way of getting things done.</strong></p>
+                    <hr>
+                    <ul>
+                        <li>It allows you to write tests in minutes.</li>
+                        <li>It can be distributed with projects and will <em>just work</em>. No installers, no plugins.</li>
+                        <li>It automatically waits for asynchronous processes and page loads to complete. No <code>wait()</code> statements, ever.</li>
+                        <li>It lets you run tests in actual browsers and use built-in dev tools to inspect results.</p>
+                    </ul>
+                    <p>MockQA is as much a <em>developer productivity</em> tool as it is a functional testing tool. There are <a href="http://www.designresourcebox.com/the-full-list-of-testing-frameworks-for-javascript-47-items/">a lot</a> of JavaScript testing frameworks and tools, but MockQA is not intended to replace any of them. It is intended to make your life as a developer a little more fun by automating the parts that are boring.</p>
+                </section>
             </section>
 
-            <section class="block">
-                <h3>
-                    <a class="button" target="_blank" href="demos/jqueryui/index.html?mockqa-autostart-test=jqueryui_test">jQuery UI Demo</a>
-                </h3>
-                <p><a href="http://jqueryui.com/">jQuery UI</a> is <em>the</em> widgets and effects library for jQuery. This demo shows how MockQA can test widgets like tabs, autocompletes and accordions.</p>
-            </section>
 
-            <section class="block">
-                <h3>
-                    <a class="button" target="_blank" href="demos/form/index.html?mockqa-autostart-test=form_test">Forms &amp; links Demo</a>
-                </h3>
-                <p>This demo shows functional tests for standard form elements like text inputs, selects, radiobuttons and checkboxes. The demo also shows that you can have one test run across multiple pages.</p>
-            </section>
+            <section id="demo">
+                <h2>Demos</h2>
 
-            <section class="block">
-                <h3>
-                    <a class="button" target="_blank" href="demos/ajax/index.html?mockqa-autostart-test=ajax_test">Ajax &amp; mocking Demo</a>
-                </h3>
-                <p><a href="https://github.com/appendto/jquery-mockjax">Mockjax</a> is a jQuery plugin by <a href="https://twitter.com/jdsharp">Jonathan Sharp</a> that allows you to intercept and mock Ajax requests from your code. This is very useful during debugging, development and, yes, testing. This demo shows how to configure mockjax from within a MockQA test.</p>
+                <section class="block">
+                    <h3>
+                        <a class="button" target="_blank" href="demos/backbone/index.html?mockqa-autostart-test=todo_test">Backbone Test</a>
+                    </h3>
+                    <p><a href="http://todomvc.com/">TodoMVC</a> is a standardized example app for JavaScript MVC frameworks. This demo tests every interactive component of the Backbone example in a couple of seconds.</p>
+                </section>
+
+                <section class="block">
+                    <h3>
+                        <a class="button" target="_blank" href="demos/jqueryui/index.html?mockqa-autostart-test=jqueryui_test">jQuery UI Test</a>
+                    </h3>
+                    <p><a href="http://jqueryui.com/">jQuery UI</a> is <em>the</em> widgets and effects library for jQuery. This demo shows how MockQA can test widgets like tabs, autocompletes and accordions.</p>
+                </section>
+
+                <section class="block">
+                    <h3>
+                        <a class="button" target="_blank" href="demos/form/index.html?mockqa-autostart-test=form_test">Forms &amp; links Test</a>
+                    </h3>
+                    <p>This demo shows functional tests for standard form elements like text inputs, selects, radiobuttons and checkboxes. The demo also shows that you can have one test run across multiple pages.</p>
+                </section>
+
+                <section class="block">
+                    <h3>
+                        <a class="button" target="_blank" href="demos/ajax/index.html?mockqa-autostart-test=ajax_test">Ajax &amp; mocking Test</a>
+                    </h3>
+                    <p><a href="https://github.com/appendto/jquery-mockjax">Mockjax</a> is a jQuery plugin by <a href="https://twitter.com/jdsharp">Jonathan Sharp</a> that allows you to intercept and mock Ajax requests from your code. This is very useful during debugging, development and, yes, testing. This demo shows how to configure mockjax from within a MockQA test.</p>
+                </section>
             </section>
-        </section>
+        </div>
+
+        <hr>
     
         <footer>
             <p>&copy; 2013 <a href="https://twitter.com/mennovanslooten">@mennovanslooten</a></p>

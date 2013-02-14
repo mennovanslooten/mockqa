@@ -17,7 +17,7 @@ body {
   min-height: 100%;
   padding: 0;
   margin: 0;
-  background: #A0A0A0;
+  background: #a0a0a0;
   color: #666;
   font-family: 'Open Sans', sans-serif;
   font-size: .95em;
@@ -29,6 +29,13 @@ body {
     padding: 0;
     margin: 0 auto 2em;
     text-shadow: 0 1px rgba(255, 255, 255, 0.4); }
+  body > hr {
+    width: auto;
+    border: none;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    margin: 4em 0; }
 
 body.grid {
   background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.1) 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%), -moz-linear-gradient(left, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.1) 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%);
@@ -78,7 +85,12 @@ a.button {
   text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
   text-decoration: none;
   opacity: 0.75;
-  border: 1px solid #990000; }
+  border: 1px solid #990000;
+  -webkit-transition: opacity .3s ease-in-out;
+  -moz-transition: opacity .3s ease-in-out;
+  -ms-transition: opacity .3s ease-in-out;
+  -o-transition: opacity .3s ease-in-out;
+  transition: opacity .3s ease-in-out; }
   a.button:hover {
     opacity: 1; }
   a.button.active, a.button:active {
@@ -139,7 +151,7 @@ hgroup h2 {
   background: -o-linear-gradient(bottom, #cc0000, #b30000);
   background: linear-gradient(bottom, #cc0000, #b30000);
   color: #FFF;
-  padding: 2em 0;
+  padding: 2em 0 6em;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3) inset;
   border-bottom: 1px solid #CCC; }
   #intro ul,
@@ -224,10 +236,12 @@ pre {
   background: linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3));
   position: relative;
   border-top: 1px solid rgba(255, 255, 255, 0.5); }
-  h2 + .block {
-    border-radius: .5em .5em 0 0; }
   .block:last-child {
     border-radius: 0 0 .5em .5em; }
+  .block:first-child {
+    border-radius: .5em .5em 0 0; }
+  .block:first-child:last-child {
+    border-radius: .5em; }
   .block h3 {
     font-size: 1.5em;
     position: absolute;
@@ -242,6 +256,13 @@ pre {
   .block + .block {
     z-index: 2;
     /*margin-top: 2em;*/ }
+
+#why .block > * {
+  margin-top: 2em; }
+#why .block > :first-child {
+  margin-top: 0; }
+#why .block > ul {
+  margin-left: 2em; }
 
 footer {
   text-align: center;
@@ -301,3 +322,60 @@ article {
         margin: 0;
         padding: 0;
         background: transparent; }
+
+.tabs {
+  position: relative;
+  margin-top: -6em;
+  text-align: center; }
+  .tabs:after {
+    position: absolute;
+    left: 0;
+    top: 4em;
+    right: 0;
+    height: 1px;
+    background: #CCC;
+    content: "";
+    margin-top: -1px;
+    z-index: 1; }
+  .tabs .tabs-tab {
+    -moz-box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+    z-index: 0;
+    padding: 0 .5em;
+    margin: 0 .25em;
+    border-radius: .25em .25em 0 0;
+    opacity: .5;
+    background: #a0a0a0;
+    border-top: 1px solid #CCC;
+    -webkit-transition: opacity .3s ease-in-out;
+    -moz-transition: opacity .3s ease-in-out;
+    -ms-transition: opacity .3s ease-in-out;
+    -o-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out; }
+    .tabs .tabs-tab:hover {
+      opacity: 0.75;
+      cursor: pointer; }
+    .tabs .tabs-tab.active {
+      opacity: 1;
+      z-index: 2; }
+    .tabs .tabs-tab:before, .tabs .tabs-tab:after {
+      width: .25em;
+      height: .25em;
+      content: "";
+      position: absolute;
+      bottom: 1px;
+      border-bottom: 1px solid #CCC; }
+    .tabs .tabs-tab:before {
+      left: -0.25em;
+      border-right: 1px solid #a0a0a0;
+      border-radius: 0 0 .25em 0;
+      box-shadow: 0.125em 0.125em #a0a0a0; }
+    .tabs .tabs-tab:after {
+      right: -0.25em;
+      border-left: 1px solid #a0a0a0;
+      border-radius: 0 0 0 .25em;
+      box-shadow: -0.125em 0.125em #a0a0a0; }
+  .tabs .tabs-target {
+    padding-top: 2em;
+    text-align: left; }
