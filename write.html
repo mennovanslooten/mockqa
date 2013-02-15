@@ -38,12 +38,12 @@
 # First, enter incomplete credentials
 type               #username           johndoe
 click              #submit
-assertText         .errorMessage       "Please fill in your password"
+assertText         .errorMessage       Please fill in your password
 
 # Then, enter wrong credentials
 type               #password           notmypassword
 click              #submit
-assertText         .errorMessage       "Username or password incorrect"
+assertText         .errorMessage       Username or password incorrect
 
 # Then, enter correct credentials
 type               #password           myactualpassword
