@@ -57,13 +57,12 @@
         },
 
         assertText: function(selector, text) {
-            return this.assertVisible(selector).filter(':contains("' + text + '")');
-            //return this.assertVisible(selector).filter(function() {
-            //var elt_text = $.trim($(this).text());
-            //elt_text = elt_text.replace(/\s+/g, ' ');
-            //console.log(elt_text);
-            //return elt_text.indexOf(text) !== -1;
-            //});
+            //return this.assertVisible(selector).filter(':contains("' + text + '")');
+            return this.assertVisible(selector).filter(function() {
+                var elt_text = $.trim($(this).text());
+                elt_text = elt_text.replace(/\s+/g, ' ');
+                return elt_text.indexOf(text) !== -1;
+            });
         },
 
         assertNotClass: function(selector, class_name) {

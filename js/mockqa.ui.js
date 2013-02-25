@@ -108,7 +108,7 @@
                 html += '<li data-index="' + item.index + '">';
                 html += '<div class="mockqa-test-name">' + item.test.test + '</div>';
                 html += '<div class="mockqa-test-progress"/>';
-                html += '<a class="mockqa-test-info" href="' + test_url + '">i</a></li>';
+                html += '<a class="mockqa-test-info" href="' + test_url + '" title="View source">s</a></li>';
             });
             html += '</ul></div>';
         });

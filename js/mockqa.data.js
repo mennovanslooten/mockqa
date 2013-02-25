@@ -18,7 +18,7 @@
 
     function loadTestList() {
         $.ajax({
-            url: M.tests_path + '/testlist',
+            url: M.tests_path + '/testlist.txt',
             cache: false
         }).done(function(text) {
             var lines = getLineArray(text);
