@@ -1,5 +1,5 @@
 # TEST SCRIPT       HTML TO BE TESTED
-todomvc.txt         kendo/index.html
+# todomvc.txt         kendo/index.html
 todomvc.txt         backbone/index.html
 todomvc_fail.txt    backbone/index.html
 form.txt            form/index.html
