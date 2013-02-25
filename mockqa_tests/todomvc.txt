@@ -55,6 +55,6 @@ dblclick         #todo-list > li:eq(1) label
 assertVisible    #todo-list > li:eq(1) .edit
 
 
-## type a new value into the items input
-type             #todo-list > li:eq(1) .edit      [left][right]\bThis is m\r
-assertText       #todo-list > li:eq(1)            This is my third item
+# ## type a new value into the items input
+# type             #todo-list > li:eq(1) .edit      [left][right]\bThis is m\r
+# assertText       #todo-list > li:eq(1)            This is my third item

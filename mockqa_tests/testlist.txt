@@ -1,0 +1,10 @@
+# TEST SCRIPT       HTML TO BE TESTED
+todomvc.txt         kendo/index.html
+todomvc.txt         backbone/index.html
+todomvc_fail.txt    backbone/index.html
+form.txt            form/index.html
+includes.txt        form/index.html
+ajax.txt            ajax/index.html
+jqueryui.txt        jqueryui/index.html
+flight.txt          flight/index.html
+# typeahead.txt       typeahead/examples/index.html

@@ -1,0 +1,32 @@
+## Test the accordion
+assertVisible   #accordion
+click           & h3:contains("First")
+assertVisible   & h3:contains("First") + div    
+click           & h3:contains("Second")
+assertVisible   & h3:contains("Second") + div    
+click           & h3:contains("Third")
+assertVisible   & h3:contains("Third") + div    
+
+## Test autocomplete input
+type            #autocomplete                               java
+assertVisible   .ui-autocomplete.ui-menu
+assertText      .ui-autocomplete.ui-menu a                  Java
+assertText      .ui-autocomplete.ui-menu a                  JavaScript
+type            #autocomplete                               [down][down]
+assertText      .ui-autocomplete.ui-menu a.ui-state-focus   JavaScript
+
+## Test radioset/choice buttons
+assertVisible   #radioset
+click           & span:contains("Choice 1")
+click           & span:contains("Choice 2")
+click           & span:contains("Choice 3")
+
+## Test tab widget
+assertVisible   #tabs
+click           & a:contains("First")
+click           & a:contains("Second")
+click           & a:contains("Third")
+
+## Test dialog link and dialog close button
+click           #dialog-link
+click           .ui-dialog button:contains("Ok")
